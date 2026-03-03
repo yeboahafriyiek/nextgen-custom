@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NextGen Custom Studio - Premium customized bottles, bracelets, jewelry, cups and gift items. Personalized elegance made just for you.">
+  <title>NextGen Custom Studio | Personalized. Elegant. Made Just For You.</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FAF8F5',
+                        sand: '#F5F0EB',
+                        gold: '#C9A962',
+                        'gold-light': '#D4BC7E',
+                        charcoal: '#2D2D2D',
+                        'warm-gray': '#8A8680'
+                    },
+                    fontFamily: {
+                        'serif': ['Cormorant Garamond', 'Georgia', 'serif'],
+                        'sans': ['Montserrat', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+  <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .slide-up {
+            animation: slideUp 0.6s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .floating-btn {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #C9A962 0%, #D4BC7E 50%, #C9A962 100%);
+        }
+        
+        .section-divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #C9A962, transparent);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #C9A962;
+            box-shadow: 0 0 0 3px rgba(201, 169, 98, 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #C9A962;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-cream text-charcoal font-sans overflow-x-hidden">
+  <div id="app-wrapper" class="w-full h-full overflow-auto"><!-- Navigation -->
+   <nav class="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-sand">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex justify-between items-center h-16 sm:h-20"><a href="#hero" class="font-serif text-xl sm:text-2xl font-semibold text-charcoal" id="nav-brand"> NextGen<span class="text-gold">.</span> </a>
+      <div class="hidden md:flex items-center space-x-8"><a href="#about" class="nav-link text-sm font-medium text-warm-gray hover:text-charcoal transition-colors">About</a> <a href="#products" class="nav-link text-sm font-medium text-warm-gray hover:text-charcoal transition-colors">Products</a> <a href="#order" class="nav-link text-sm font-medium text-warm-gray hover:text-charcoal transition-colors">Order</a> <a href="#community" class="nav-link text-sm font-medium text-warm-gray hover:text-charcoal transition-colors">Community</a>
+      </div><button id="mobile-menu-btn" class="md:hidden p-2">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+       </svg></button>
+     </div>
+    </div><!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-sand">
+     <div class="px-4 py-4 space-y-3"><a href="#about" class="block text-sm font-medium text-warm-gray hover:text-charcoal py-2">About</a> <a href="#products" class="block text-sm font-medium text-warm-gray hover:text-charcoal py-2">Products</a> <a href="#order" class="block text-sm font-medium text-warm-gray hover:text-charcoal py-2">Order</a> <a href="#community" class="block text-sm font-medium text-warm-gray hover:text-charcoal py-2">Community</a>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 pb-16 px-4">
+    <div class="absolute inset-0 bg-gradient-to-b from-sand/50 to-cream"></div>
+    <div class="absolute top-20 right-10 w-72 h-72 bg-gold/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 left-10 w-96 h-96 bg-gold/5 rounded-full blur-3xl"></div>
+    <div class="relative z-10 text-center max-w-4xl mx-auto">
+     <div class="fade-in"><span class="inline-block text-gold text-sm font-medium tracking-[0.3em] uppercase mb-6">Premium Customization</span>
+     </div>
+     <h1 id="hero-title" class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-charcoal leading-tight mb-6 slide-up">NextGen Custom Studio</h1>
+     <p id="hero-tagline" class="font-sans text-lg sm:text-xl text-warm-gray font-light tracking-wide mb-12 slide-up stagger-1">Personalized. Elegant. Made Just For You.</p>
+     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 slide-up stagger-2"><a href="#order" class="btn-primary w-full sm:w-auto px-10 py-4 bg-charcoal text-white text-sm font-medium tracking-wider uppercase rounded-full hover:bg-gold transition-colors"> Place an Order </a> <a href="https://chat.whatsapp.com/Iua6GFQoBlx4XGFHeEcxLC" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-10 py-4 border border-charcoal text-charcoal text-sm font-medium tracking-wider uppercase rounded-full hover:bg-charcoal hover:text-white transition-all"> Join WhatsApp Group </a>
+     </div>
+     <div class="mt-20 slide-up stagger-3"><a href="#about" class="inline-flex flex-col items-center text-warm-gray hover:text-gold transition-colors"> <span class="text-xs tracking-widest uppercase mb-2">Discover More</span>
+       <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+       </svg></a>
+     </div>
+    </div>
+   </section><!-- About Section -->
+<section id="about" class="py-20 sm:py-32 px-4 bg-white">
+  <div class="max-w-4xl mx-auto text-center">
+    <span class="inline-block text-gold text-sm font-medium tracking-[0.3em] uppercase mb-4">Our Story</span>
+    <h2 class="font-serif text-4xl sm:text-5xl font-semibold text-charcoal mb-6">About Us</h2>
+    <div class="section-divider mx-auto mb-10"></div>
+    <p id="about-text" class="text-warm-gray text-lg leading-relaxed mb-8 max-w-3xl mx-auto">
+      We create premium customized items tailored to your exact vision. Whether it's a personalized bottle, elegant jewelry, custom cups, or unique gift packages — we bring your ideas to life with exceptional craftsmanship and attention to detail.
+    </p>
+    <p class="text-warm-gray text-lg leading-relaxed mb-12 max-w-3xl mx-auto">
+      Simply send us your inspiration pictures, names, colors, and design ideas. We'll work closely with you to create something truly special and uniquely yours.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16">
+
+      <!-- Production Time -->
+      <div class="p-6">
+        <div class="w-16 h-16 mx-auto mb-4 bg-sand rounded-full flex items-center justify-center">
+          <img src="https://images-na.ssl-images-amazon.com/images/I/812L5zyAmpL._AC_SL1500_.jpg"
+               alt="Production Duration"
+               class="w-8 h-8 object-cover rounded-full">
+        </div>
+        <h3 class="font-serif text-xl font-semibold mb-2">Production Time</h3>
+        <p class="text-warm-gray">30–40 Days</p>
+      </div>
+
+      <!-- Quality -->
+      <div class="p-6">
+        <div class="w-16 h-16 mx-auto mb-4 bg-sand rounded-full flex items-center justify-center">
+          <img src="https://i.pinimg.com/736x/3f/bf/40/3fbf4075b391e07eaa00ec5a87647cb5.jpg"
+               alt="Premium Quality"
+               class="w-8 h-8 object-cover rounded-full">
+        </div>
+        <h3 class="font-serif text-xl font-semibold mb-2">Quality</h3>
+        <p class="text-warm-gray">Premium Materials</p>
+      </div>
+
+      <!-- Made with Love -->
+      <div class="p-6">
+        <div class="w-16 h-16 mx-auto mb-4 bg-sand rounded-full flex items-center justify-center">
+          <img src="https://i.pinimg.com/736x/38/5f/e4/385fe4040c7996a014a9fa898f5b2e42.jpg"
+               alt="Made with Love"
+               class="w-8 h-8 object-cover rounded-full">
+        </div>
+        <h3 class="font-serif text-xl font-semibold mb-2">Made with Love</h3>
+        <p class="text-warm-gray">Just For You</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Products Section -->
+<section id="products" class="py-20 sm:py-32 px-4 bg-sand/50">
+  <div class="max-w-6xl mx-auto">
+    
+    <div class="text-center mb-16">
+      <span class="inline-block text-gold text-sm font-medium tracking-[0.3em] uppercase mb-4">
+        What We Create
+      </span>
+      <h2 class="font-serif text-4xl sm:text-5xl font-semibold text-charcoal mb-6">
+        Our Products
+      </h2>
+      <div class="section-divider mx-auto"></div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+
+  <!-- Custom Bottles -->
+  <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg">
+    <div class="h-48 overflow-hidden">
+      <img src="https://i.pinimg.com/1200x/af/39/8b/af398b4a28bc95500a9c5f689e779306.jpg"
+           alt="Custom Bottles"
+           class="w-full h-full object-cover">
+    </div>
+    <div class="p-6">
+      <h3 class="font-serif text-xl font-semibold text-charcoal mb-2">Custom Bottles</h3>
+      <p class="text-warm-gray text-sm mb-4">Personalized bottles with your name, quotes, or unique designs.</p>
+      <button onclick="selectProduct('Custom Bottles')" class="w-full py-3 border border-charcoal text-charcoal text-xs font-medium tracking-wider uppercase rounded-full hover:bg-charcoal hover:text-white transition-all">Order This</button>
+    </div>
+  </div>
+
+  <!-- Bracelets & Jewelry -->
+  <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg">
+    <div class="h-48 overflow-hidden">
+      <img src="https://i.pinimg.com/1200x/c3/3b/97/c33b97c1ffa55870a9c5c96fd7ee20ed.jpg"
+           alt="Bracelets and Jewelry"
+           class="w-full h-full object-cover">
+    </div>
+    <div class="p-6">
+      <h3 class="font-serif text-xl font-semibold text-charcoal mb-2">Bracelets & Jewelry</h3>
+      <p class="text-warm-gray text-sm mb-4">Elegant personalized bracelets and name jewelry.</p>
+      <button onclick="selectProduct('Bracelets & Jewelry')" class="w-full py-3 border border-charcoal text-charcoal text-xs font-medium tracking-wider uppercase rounded-full hover:bg-charcoal hover:text-white transition-all">Order This</button>
+    </div>
+  </div>
+
+  <!-- Custom Cups -->
+  <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg">
+    <div class="h-48 overflow-hidden">
+      <img src="https://i.pinimg.com/1200x/a8/6e/8e/a86e8e0b856ed118b5bb4ada7e61526c.jpg"
+           alt="Custom Cups"
+           class="w-full h-full object-cover">
+    </div>
+    <div class="p-6">
+      <h3 class="font-serif text-xl font-semibold text-charcoal mb-2">Custom Cups</h3>
+      <p class="text-warm-gray text-sm mb-4">Beautiful customized cups for every occasion.</p>
+      <button onclick="selectProduct('Custom Cups')" class="w-full py-3 border border-charcoal text-charcoal text-xs font-medium tracking-wider uppercase rounded-full hover:bg-charcoal hover:text-white transition-all">Order This</button>
+    </div>
+  </div>
+
+  <!-- Gift Packages -->
+  <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg">
+    <div class="h-48 overflow-hidden">
+      <img src="https://i.pinimg.com/736x/68/94/ef/6894ef20689e4b27a0ebfe89d0eb27e7.jpg"
+           alt="Gift Packages"
+           class="w-full h-full object-cover">
+    </div>
+    <div class="p-6">
+      <h3 class="font-serif text-xl font-semibold text-charcoal mb-2">Gift Packages</h3>
+      <p class="text-warm-gray text-sm mb-4">Curated gift packages for birthdays and celebrations.</p>
+      <button onclick="selectProduct('Gift Packages')" class="w-full py-3 border border-charcoal text-charcoal text-xs font-medium tracking-wider uppercase rounded-full hover:bg-charcoal hover:text-white transition-all">Order This</button>
+    </div>
+  </div>
+
+  <!-- Custom Diary -->
+  <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg">
+    <div class="h-48 overflow-hidden">
+      <img src="https://i.pinimg.com/1200x/16/ca/8e/16ca8e4f2a6549806101ae4a2210a471.jpg"
+           alt="Custom Diary"
+           class="w-full h-full object-cover">
+    </div>
+    <div class="p-6">
+      <h3 class="font-serif text-xl font-semibold text-charcoal mb-2">Custom Diary</h3>
+      <p class="text-warm-gray text-sm mb-4">Personalized journals and planners made just for you.</p>
+      <button onclick="selectProduct('Custom Diary')" class="w-full py-3 border border-charcoal text-charcoal text-xs font-medium tracking-wider uppercase rounded-full hover:bg-charcoal hover:text-white transition-all">Order This</button>
+    </div>
+  </div>
+
+  <!-- Custom Ring -->
+  <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg">
+    <div class="h-48 overflow-hidden">
+      <img src="https://i.pinimg.com/1200x/31/ac/45/31ac45fdf4dc6679d4aa06ef00d630b2.jpg"
+           alt="Custom Ring"
+           class="w-full h-full object-cover">
+    </div>
+    <div class="p-6">
+      <h3 class="font-serif text-xl font-semibold text-charcoal mb-2">Custom Ring</h3>
+      <p class="text-warm-gray text-sm mb-4">Beautiful engraved rings customized with names or dates.</p>
+      <button onclick="selectProduct('Custom Ring')" class="w-full py-3 border border-charcoal text-charcoal text-xs font-medium tracking-wider uppercase rounded-full hover:bg-charcoal hover:text-white transition-all">Order This</button>
+    </div>
+  </div>
+
+  <!-- Custom Bag -->
+  <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg">
+    <div class="h-48 overflow-hidden">
+      <img src="https://img.kwcdn.com/product/fancy/3c2de1e8-b040-4135-b25c-dc9c52ca976e.jpg?imageView2/2/w/1300/q/90/format/avif"
+           alt="Custom Bag"
+           class="w-full h-full object-cover">
+    </div>
+    <div class="p-6">
+      <h3 class="font-serif text-xl font-semibold text-charcoal mb-2">Custom Bag</h3>
+      <p class="text-warm-gray text-sm mb-4">Stylish personalized bags with custom prints or names.</p>
+      <button onclick="selectProduct('Custom Bag')" class="w-full py-3 border border-charcoal text-charcoal text-xs font-medium tracking-wider uppercase rounded-full hover:bg-charcoal hover:text-white transition-all">Order This</button>
+    </div>
+  </div>
+
+  <!-- Custom Gift Box -->
+  <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg">
+    <div class="h-48 overflow-hidden">
+      <img src="https://img.kwcdn.com/product/open/1c554f3791254f90830d6670820e6772-goods.jpeg?imageView2/2/w/1300/q/90/format/avif"
+           alt="Custom Gift Box"
+           class="w-full h-full object-cover">
+    </div>
+    <div class="p-6">
+      <h3 class="font-serif text-xl font-semibold text-charcoal mb-2">Custom Gift Box</h3>
+      <p class="text-warm-gray text-sm mb-4">Luxury customized gift boxes for special moments.</p>
+      <button onclick="selectProduct('Custom Gift Box')" class="w-full py-3 border border-charcoal text-charcoal text-xs font-medium tracking-wider uppercase rounded-full hover:bg-charcoal hover:text-white transition-all">Order This</button>
+    </div>
+  </div>
+
+</div>
+</section>
+   </section><!-- Order Form Section -->
+   <section id="order" class="py-20 sm:py-32 px-4 bg-white">
+    <div class="max-w-2xl mx-auto">
+     <div class="text-center mb-12"><span class="inline-block text-gold text-sm font-medium tracking-[0.3em] uppercase mb-4">Start Creating</span>
+      <h2 class="font-serif text-4xl sm:text-5xl font-semibold text-charcoal mb-6">Place Your Order</h2>
+      <div class="section-divider mx-auto mb-6"></div>
+      <p class="text-warm-gray">Fill out the form below and we'll get back to you on WhatsApp</p>
+     </div>
+     <form id="order-form" class="bg-sand/30 rounded-3xl p-6 sm:p-10 shadow-xl">
+      <div class="space-y-6"><!-- Full Name -->
+       <div><label for="fullName" class="block text-sm font-medium text-charcoal mb-2">Full Name *</label> <input type="text" id="fullName" name="fullName" required class="w-full px-5 py-4 bg-white border border-sand rounded-xl text-charcoal placeholder-warm-gray/50 transition-all" placeholder="Enter your full name">
+       </div><!-- Phone Number -->
+       <div><label for="phoneNumber" class="block text-sm font-medium text-charcoal mb-2">Phone Number *</label> <input type="tel" id="phoneNumber" name="phoneNumber" required class="w-full px-5 py-4 bg-white border border-sand rounded-xl text-charcoal placeholder-warm-gray/50 transition-all" placeholder="Enter your phone number">
+       </div><!-- Select Product -->
+       <div><label for="product" class="block text-sm font-medium text-charcoal mb-2">Select Product *</label> <select id="product" name="product" required class="w-full px-5 py-4 bg-white border border-sand rounded-xl text-charcoal transition-all appearance-none cursor-pointer"> <option value="">Choose a product...</option> <option value="Custom Bottles">Custom Bottles</option> <option value="Bracelets &amp; Jewelry">Bracelets &amp; Jewelry</option> <option value="Custom Cups">Custom Cups</option> <option value="Gift Packages">Gift Packages</option> </select>
+       </div><!-- Custom Text -->
+       <div><label for="customText" class="block text-sm font-medium text-charcoal mb-2">Custom Text / Name to Print</label> <input type="text" id="customText" name="customText" class="w-full px-5 py-4 bg-white border border-sand rounded-xl text-charcoal placeholder-warm-gray/50 transition-all" placeholder="e.g., 'Sarah' or 'Happy Birthday'">
+       </div><!-- Color Preference -->
+       <div><label for="colorPreference" class="block text-sm font-medium text-charcoal mb-2">Color Preference</label> <input type="text" id="colorPreference" name="colorPreference" class="w-full px-5 py-4 bg-white border border-sand rounded-xl text-charcoal placeholder-warm-gray/50 transition-all" placeholder="e.g., Gold, Rose Gold, Silver, Pink">
+       </div><!-- Upload Inspiration -->
+       <div><label for="inspiration" class="block text-sm font-medium text-charcoal mb-2">Inspiration Image Description</label> <textarea id="inspiration" name="inspiration" rows="2" class="w-full px-5 py-4 bg-white border border-sand rounded-xl text-charcoal placeholder-warm-gray/50 transition-all resize-none" placeholder="Describe your inspiration or share a link to an image"></textarea>
+       </div><!-- Additional Notes -->
+       <div><label for="notes" class="block text-sm font-medium text-charcoal mb-2">Additional Notes</label> <textarea id="notes" name="notes" rows="3" class="w-full px-5 py-4 bg-white border border-sand rounded-xl text-charcoal placeholder-warm-gray/50 transition-all resize-none" placeholder="Any other details or special requests..."></textarea>
+       </div><!-- Production Time Checkbox -->
+       <div class="flex items-start space-x-3"><input type="checkbox" id="agreeTerms" name="agreeTerms" required class="mt-1 w-5 h-5 text-gold border-sand rounded focus:ring-gold cursor-pointer"> <label for="agreeTerms" class="text-sm text-warm-gray cursor-pointer"> I understand that production time is <strong class="text-charcoal">30–40 days</strong> </label>
+       </div><!-- Submit Button --> <button type="submit" id="submit-btn" class="btn-primary w-full py-4 bg-charcoal text-white text-sm font-medium tracking-wider uppercase rounded-full hover:bg-gold transition-all flex items-center justify-center space-x-2">
+        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg><span>Send Order via WhatsApp</span> </button>
+      </div>
+     </form>
+    </div>
+   </section><!-- WhatsApp Community Section -->
+   <section id="community" class="py-20 sm:py-32 px-4 bg-charcoal text-white">
+    <div class="max-w-3xl mx-auto text-center"><span class="inline-block text-gold text-sm font-medium tracking-[0.3em] uppercase mb-4">Stay Connected</span>
+     <h2 class="font-serif text-4xl sm:text-5xl font-semibold mb-6">Join Our Community</h2>
+     <div class="section-divider mx-auto mb-8"></div>
+     <p class="text-white/70 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">Stay updated, see new designs, and be the first to know when orders open. Join our WhatsApp group to connect with us and other customers.</p><a href="https://chat.whatsapp.com/Iua6GFQoBlx4XGFHeEcxLC" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-3 px-10 py-4 bg-green-600 text-white text-sm font-medium tracking-wider uppercase rounded-full hover:bg-green-700 transition-all">
+      <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+      </svg><span>Join WhatsApp Group</span> </a>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-12 px-4 bg-sand/50 border-t border-sand">
+    <div class="max-w-6xl mx-auto">
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+      <div class="text-center md:text-left">
+       <h3 class="font-serif text-2xl font-semibold text-charcoal mb-4">NextGen<span class="text-gold">.</span></h3>
+       <p class="text-warm-gray text-sm">Personalized. Elegant. Made Just For You.</p>
+      </div>
+      <div class="text-center">
+       <h4 class="font-medium text-charcoal mb-4">Contact Us</h4>
+       <p class="text-warm-gray text-sm mb-2"><span id="footer-phone">Phone: 0536487144</span></p><a href="https://wa.me/233543253064?text=Hi%2C%20I%20want%20to%20make%20inquiries%20about%20NextGen%20Custom%20Studio." target="_blank" rel="noopener noreferrer" class="text-gold text-sm hover:underline"> WhatsApp: +233 54 325 3064 </a>
+      </div>
+      <div class="text-center md:text-right">
+       <h4 class="font-medium text-charcoal mb-4">Important Notice</h4>
+       <p class="text-warm-gray text-sm">Production Time: 30–40 Days</p>
+       <p class="text-warm-gray text-sm mt-2">Quality takes time ✨</p>
+      </div>
+     </div>
+     <div class="border-t border-sand pt-8 text-center">
+      <p class="text-warm-gray text-sm">© 2024 NextGen Custom Studio. All rights reserved.</p>
+     </div>
+    </div>
+   </footer><!-- Floating WhatsApp Button --> <a href="https://wa.me/233543253064?text=Hi%2C%20I%20want%20to%20make%20inquiries%20about%20NextGen%20Custom%20Studio." target="_blank" rel="noopener noreferrer" class="floating-btn fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-colors z-50">
+    <svg class="w-7 h-7 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg></a>
+  </div>
+  <script>
+        // Default configuration
+        const defaultConfig = {
+            brand_name: 'NextGen Custom Studio',
+            tagline: 'Personalized. Elegant. Made Just For You.',
+            about_text: 'We create premium customized items tailored to your exact vision. Whether it\'s a personalized bottle, elegant jewelry, custom cups, or unique gift packages — we bring your ideas to life with exceptional craftsmanship and attention to detail.',
+            phone_number: '0536487144',
+            whatsapp_number: '+233 54 325 3064',
+            background_color: '#FAF8F5',
+            text_color: '#2D2D2D',
+            accent_color: '#C9A962',
+            button_color: '#2D2D2D',
+            surface_color: '#FFFFFF'
+        };
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Select product function
+        function selectProduct(productName) {
+            const productSelect = document.getElementById('product');
+            productSelect.value = productName;
+            
+            // Scroll to order form
+            document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+            
+            // Focus on the first empty required field
+            setTimeout(() => {
+                const fullName = document.getElementById('fullName');
+                if (!fullName.value) {
+                    fullName.focus();
+                }
+            }, 500);
+        }
+
+        // Form submission
+        const orderForm = document.getElementById('order-form');
+        orderForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const product = document.getElementById('product').value;
+            const customText = document.getElementById('customText').value;
+            const colorPreference = document.getElementById('colorPreference').value;
+            const inspiration = document.getElementById('inspiration').value;
+            const notes = document.getElementById('notes').value;
+            
+            // Build WhatsApp message
+            let message = `Hi, I want to make an inquiry/order.\n\n`;
+            message += `*Name:* ${fullName}\n`;
+            message += `*Phone:* ${phoneNumber}\n`;
+            message += `*Product:* ${product}\n`;
+            
+            if (customText) message += `*Custom Text:* ${customText}\n`;
+            if (colorPreference) message += `*Color:* ${colorPreference}\n`;
+            if (inspiration) message += `*Inspiration:* ${inspiration}\n`;
+            if (notes) message += `*Notes:* ${notes}\n`;
+            
+            // Encode and open WhatsApp
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/233543253064?text=${encodedMessage}`;
+            
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // Initialize Element SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig: defaultConfig,
+                onConfigChange: async (config) => {
+                    // Update brand name
+                    const brandName = config.brand_name || defaultConfig.brand_name;
+                    document.getElementById('nav-brand').innerHTML = brandName.split(' ')[0] + '<span class="text-gold">.</span>';
+                    document.getElementById('hero-title').textContent = brandName;
+                    
+                    // Update tagline
+                    document.getElementById('hero-tagline').textContent = config.tagline || defaultConfig.tagline;
+                    
+                    // Update about text
+                    document.getElementById('about-text').textContent = config.about_text || defaultConfig.about_text;
+                    
+                    // Update phone number in footer
+                    document.getElementById('footer-phone').textContent = 'Phone: ' + (config.phone_number || defaultConfig.phone_number);
+                    
+                    // Update colors
+                    const bgColor = config.background_color || defaultConfig.background_color;
+                    const textColor = config.text_color || defaultConfig.text_color;
+                    const accentColor = config.accent_color || defaultConfig.accent_color;
+                    
+                    document.documentElement.style.setProperty('--bg-color', bgColor);
+                    document.documentElement.style.setProperty('--text-color', textColor);
+                    document.documentElement.style.setProperty('--accent-color', accentColor);
+                },
+                mapToCapabilities: (config) => ({
+                    recolorables: [
+                        {
+                            get: () => config.background_color || defaultConfig.background_color,
+                            set: (value) => {
+                                config.background_color = value;
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.surface_color || defaultConfig.surface_color,
+                            set: (value) => {
+                                config.surface_color = value;
+                                window.elementSdk.setConfig({ surface_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.text_color || defaultConfig.text_color,
+                            set: (value) => {
+                                config.text_color = value;
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.accent_color || defaultConfig.accent_color,
+                            set: (value) => {
+                                config.accent_color = value;
+                                window.elementSdk.setConfig({ accent_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.button_color || defaultConfig.button_color,
+                            set: (value) => {
+                                config.button_color = value;
+                                window.elementSdk.setConfig({ button_color: value });
+                            }
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: {
+                        get: () => config.font_family || 'Cormorant Garamond',
+                        set: (value) => {
+                            config.font_family = value;
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    },
+                    fontSizeable: {
+                        get: () => config.font_size || 16,
+                        set: (value) => {
+                            config.font_size = value;
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ['brand_name', config.brand_name || defaultConfig.brand_name],
+                    ['tagline', config.tagline || defaultConfig.tagline],
+                    ['about_text', config.about_text || defaultConfig.about_text],
+                    ['phone_number', config.phone_number || defaultConfig.phone_number],
+                    ['whatsapp_number', config.whatsapp_number || defaultConfig.whatsapp_number]
+                ])
+            });
+        }
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d61c3c741c8df88',t:'MTc3MjQ2ODgwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
